@@ -274,7 +274,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: row;
-    
+    gap:90px;
     background-color: #B91C1C;  /* Hardcoded red - never changes */
 }
 
@@ -366,4 +366,62 @@ body {
     #hero img {
         max-width: 300px;
     }
+}
+
+/* ========== BUTTONS ========== */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 0;          /* Sharp corners like reference */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Primary button - black bg, white text */
+.btn-primary {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+}
+
+.btn-primary:hover {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+.btn-primary svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover svg {
+    transform: translateX(4px);
+}
+
+/* Outline button - transparent bg, black border, black text */
+.btn-outline {
+    background-color: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+.btn-outline:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: translateY(-2px);
 }
