@@ -1,0 +1,358 @@
+/* ========== CSS Variables ========== */
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #B91C1C;
+    --bg-nav: rgba(0, 0, 0, 0.8);
+    --bg-toggle: rgba(255, 255, 255, 0.1);
+    --bg-toggle-hover: rgba(255, 255, 255, 0.2);
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --accent: #dc2626;
+    --accent-hover: #b91c1c;
+    --border: rgba(255, 255, 255, 0.1);
+    --font-heading: 'Bebas Neue', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --nav-height: 80px;
+    --max-width: 1280px;
+}
+
+/* ========== Reset & Base ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* ========== Navbar ========== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: var(--bg-nav);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: transform var(--transition-medium), 
+                background-color var(--transition-medium),
+                box-shadow var(--transition-medium);
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ========== Logo ========== */
+.nav-logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+    transition: opacity var(--transition-fast);
+}
+
+.nav-logo:hover {
+    opacity: 0.9;
+}
+
+.nav-logo span {
+    color: var(--text-primary);
+}
+
+/* ========== Desktop Navigation ========== */
+.nav-links-desktop {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ========== Theme Toggle Button ========== */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--bg-toggle);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), 
+                transform var(--transition-fast);
+}
+
+.theme-toggle:hover {
+    background-color: var(--bg-toggle-hover);
+    transform: scale(1.05);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+.theme-toggle svg {
+    display: block;
+}
+
+/* ========== Mobile Controls ========== */
+.nav-mobile-controls {
+    display: none;
+    align-items: center;
+    gap: 16px;
+}
+
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: opacity var(--transition-fast);
+}
+
+.menu-toggle:hover {
+    opacity: 0.8;
+}
+
+/* ========== Mobile Menu ========== */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    padding: 16px 24px;
+    background-color: var(--bg-nav);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height var(--transition-medium), 
+                opacity var(--transition-medium),
+                padding var(--transition-medium);
+}
+
+.mobile-menu.active {
+    display: flex;
+    max-height: 400px;
+    opacity: 1;
+}
+
+.mobile-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: color var(--transition-fast), 
+                padding-left var(--transition-fast);
+}
+
+.mobile-link:last-child {
+    border-bottom: none;
+}
+
+.mobile-link:hover {
+    color: var(--accent);
+    padding-left: 8px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+    .nav-links-desktop {
+        display: none;
+    }
+    
+    .nav-mobile-controls {
+        display: flex;
+    }
+    
+    .mobile-menu.active {
+        display: flex;
+    }
+}
+
+/* ========== Demo Content ========== */
+.section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px 60px;
+}
+
+.section:nth-child(odd) {
+    background-color: var(--bg-primary);
+}
+
+.section:nth-child(even) {
+    background-color: var(--bg-secondary);
+}
+
+.section h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.section p {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+}
+
+/* ========== HERO SECTION - FIXED COLORS ========== */
+#hero {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    
+    background-color: #B91C1C;  /* Hardcoded red - never changes */
+}
+
+/* Override the .section:nth-child rules for #hero */
+#hero.section:nth-child(odd),
+#hero.section:nth-child(even) {
+    background-color: #B91C1C;  /* Force red always */
+}
+
+#hero .hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+/* "I AM" - small white text */
+#hero h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: #ffffff;           /* FIXED white - no variable */
+    margin-bottom: 0;
+    line-height: 1;
+    letter-spacing: 0.05em;
+}
+
+/* Big name - BLACK text (like reference image) */
+#hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 7rem;
+    color: #000000;           /* FIXED black - no variable */
+    margin-bottom: 16px;
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+}
+
+/* Subtitle with divider line */
+#hero p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: #ffffff;           /* FIXED white - no variable */
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+#hero .
+
+
+#hero img {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 768px) {
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    #hero h1 {
+        font-size: 4rem;
+    }
+    
+    #hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    #hero p {
+        justify-content: center;
+    }
+    
+    #hero img {
+        max-width: 300px;
+    }
+}
