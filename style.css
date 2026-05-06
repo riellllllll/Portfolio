@@ -346,6 +346,36 @@ body {
     display: none;
 }
 
+/* ========== STATUS BADGE - CENTER BELOW BUTTONS ========== */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;      /* Bigger */
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    font-size: 0.95rem;      /* Bigger text */
+    font-weight: 500;
+    color: #ffffff;
+    margin-top: 20px;
+    align-self: center;      /* Center horizontally in flex container */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dot {
+    width: 10px;             /* Bigger dot */
+    height: 10px;
+    background-color: #00ff88;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 8px #00ff88;  /* Glow effect */
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
 /* ========== BUTTONS ========== */
 .hero-buttons {
     display: flex;
