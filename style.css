@@ -322,8 +322,19 @@ body {
     margin-top: 8px;
 }
 
-#hero .
+#hero .hero-subtitle {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: none;       
+    letter-spacing: normal;       
+    line-height: 1.6;
+    margin-top: 16px;
+    display: block;               
+}
 
+#hero .hero-subtitle::before {
+    display: none;                
+}
 
 #hero img {
     max-width: 450px;
