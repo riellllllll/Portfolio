@@ -269,19 +269,20 @@ body {
     color: var(--text-muted);
 }
 
-/* ========== HERO SECTION - FIXED COLORS ========== */
+/* ========== HERO SECTION ========== */
 #hero {
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: row;
-    gap:90px;
-    background-color: #B91C1C;  /* Hardcoded red - never changes */
+    gap: 90px;
+    background-color: #B91C1C;
 }
 
-/* Override the .section:nth-child rules for #hero */
+/* Override section alternating colors */
 #hero.section:nth-child(odd),
 #hero.section:nth-child(even) {
-    background-color: #B91C1C;  /* Force red always */
+    background-color: #B91C1C;
 }
 
 #hero .hero-content {
@@ -289,21 +290,21 @@ body {
     max-width: 600px;
 }
 
-/* "I AM" - small white text */
+/* "HI, I AM" - small white text */
 #hero h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.5rem;
-    color: #ffffff;           /* FIXED white - no variable */
+    color: #ffffff;
     margin-bottom: 0;
     line-height: 1;
     letter-spacing: 0.05em;
 }
 
-/* Big name - BLACK text (like reference image) */
+/* Big name - BLACK text */
 #hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 7rem;
-    color: #000000;           /* FIXED black - no variable */
+    color: #000000;
     margin-bottom: 16px;
     line-height: 0.9;
     letter-spacing: 0.02em;
@@ -313,7 +314,7 @@ body {
 #hero p {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    color: #ffffff;           /* FIXED white - no variable */
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     display: flex;
@@ -322,25 +323,125 @@ body {
     margin-top: 8px;
 }
 
+#hero p::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 3px;
+    background-color: #000000;
+}
+
+/* Description paragraph */
 #hero .hero-subtitle {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.85);
-    text-transform: none;       
-    letter-spacing: normal;       
-    line-height: 1.6;
-    margin-top: 16px;
-    display: block;               
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.7;
+    margin-top: 20px;
+    display: block;
 }
 
 #hero .hero-subtitle::before {
-    display: none;                
+    display: none;
 }
 
+/* ========== BUTTONS ========== */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+}
+
+.btn-primary:hover {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+.btn-primary svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover svg {
+    transform: translateX(4px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #000000;
+    border: 2px solid #000000;
+}
+
+.btn-outline:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ========== IMAGE ========== */
 #hero img {
     max-width: 450px;
     width: 100%;
     height: auto;
     object-fit: cover;
+}
+
+/* ========== SCROLL INDICATOR ========== */
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollBounce 2s infinite;
+}
+
+.mouse {
+    width: 27px;
+    height: 45px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    animation: scrollBounce 2s infinite;  /* Move animation here */
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+   
+}
+
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(8px); opacity: 1; }
 }
 
 /* ========== MOBILE ========== */
@@ -366,62 +467,8 @@ body {
     #hero img {
         max-width: 300px;
     }
-}
-
-/* ========== BUTTONS ========== */
-.hero-buttons {
-    display: flex;
-    gap: 16px;
-    margin-top: 32px;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 32px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    border-radius: 0;          /* Sharp corners like reference */
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Primary button - black bg, white text */
-.btn-primary {
-    background-color: #000000;
-    color: #ffffff;
-    border: 2px solid #000000;
-}
-
-.btn-primary:hover {
-    background-color: #1a1a1a;
-    border-color: #1a1a1a;
-    transform: translateY(-2px);
-}
-
-.btn-primary svg {
-    transition: transform 0.3s ease;
-}
-
-.btn-primary:hover svg {
-    transform: translateX(4px);
-}
-
-/* Outline button - transparent bg, black border, black text */
-.btn-outline {
-    background-color: transparent;
-    color: #000000;
-    border: 2px solid #000000;
-}
-
-.btn-outline:hover {
-    background-color: #000000;
-    color: #ffffff;
-    transform: translateY(-2px);
+    
+    .scroll-indicator {
+        display: none;
+    }
 }
