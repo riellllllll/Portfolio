@@ -567,3 +567,28 @@ body {
     gap: 40px;
     align-items: center;
 }
+
+.skill-header {
+    margin-bottom: 48px;
+}
+
+.section-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: rgba(185, 28, 28, 0.15);
+    border: 1px solid rgba(185, 28, 28, 0.3);
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #B91C1C;
+    margin-bottom: 16px;
+}
+
+.skill-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    color: #ffffff;
+    line-height: 1;
+}
