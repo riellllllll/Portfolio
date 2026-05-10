@@ -503,7 +503,7 @@ body {
     }
 }
 
-/* ========== ABOUT & SKILLS SECTION ========== */
+/* ========== ABOUT SECTION ========== */
 #about {
     background-color: #0a0a0a;
     color: #ffffff;
@@ -515,7 +515,7 @@ body {
 }
 
 .about-container {
-    max-width: 1100px;
+    max-width: 800px;
     width: 100%;
 }
 
@@ -540,124 +540,69 @@ body {
 
 .section-header h2 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #ffffff;
     line-height: 1;
 }
 
-/* ========== TWO COLUMN GRID ========== */
-.about-skills-grid {
+/* ========== ABOUT CONTENT ========== */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-lead {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #e5e7eb;
+    font-weight: 500;
+}
+
+.about-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #9ca3af;
+}
+
+/* ========== INFO GRID ========== */
+.about-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    margin-bottom: 40px;
+    gap: 24px;
+    margin-top: 32px;
+    padding: 32px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #B91C1C;
 }
 
-.about-column h3,
-.skills-column h3 {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-/* ========== ABOUT COLUMN ========== */
-.about-lead {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #d1d5db;
-    margin-bottom: 20px;
-}
-
-.about-list {
-    list-style: disc;
-    padding-left: 20px;
-    color: #9ca3af;
-    line-height: 1.8;
-}
-
-.about-list li {
-    margin-bottom: 8px;
-}
-
-/* ========== SKILLS COLUMN ========== */
-.skills-list {
-    list-style: disc;
-    padding-left: 20px;
-    color: #9ca3af;
-    line-height: 1.8;
-    margin-bottom: 28px;
-}
-
-.skills-list li {
-    margin-bottom: 8px;
-}
-
-/* ========== SKILL TAGS ========== */
-.skill-tags {
+.info-item {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-direction: column;
+    gap: 6px;
 }
 
-.tag {
-    padding: 8px 18px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    font-size: 0.85rem;
-    color: #e5e7eb;
-    transition: all 0.3s ease;
+.info-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6b7280;
 }
 
-.tag:hover {
-    background-color: rgba(185, 28, 28, 0.2);
-    border-color: #B91C1C;
+.info-value {
+    font-size: 0.95rem;
     color: #ffffff;
-}
-
-/* ========== TIP BOX ========== */
-.tip-box {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 20px 24px;
-    background-color: rgba(185, 28, 28, 0.08);
-    border: 1px solid rgba(185, 28, 28, 0.2);
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-.tip-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    background-color: #B91C1C;
-    color: #ffffff;
-    border-radius: 50%;
-    font-size: 0.85rem;
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
-.tip-box p {
-    font-size: 0.9rem;
-    color: #d1d5db;
-    line-height: 1.6;
-    margin: 0;
+    font-weight: 500;
 }
 
 /* ========== MOBILE ========== */
 @media (max-width: 768px) {
-    .about-skills-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+    .section-header h2 {
+        font-size: 2.5rem;
     }
     
-    .section-header h2 {
-        font-size: 2.2rem;
+    .about-info {
+        grid-template-columns: 1fr;
+        padding: 24px;
     }
 }
