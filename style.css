@@ -530,17 +530,17 @@ body {
     background-color: rgba(185, 28, 28, 0.15);
     border: 1px solid rgba(185, 28, 28, 0.3);
     border-radius: 4px;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
     color: #B91C1C;
     margin-bottom: 16px;
 }
 
 .section-header h2 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem;
+    font-size: 5rem;
     color: #ffffff;
     line-height: 1;
 }
@@ -554,8 +554,8 @@ body {
 
 .about-text {
     font-size: 1.25rem;
-    line-height: 1.7;
+    line-height: 1.7rem;
     color: #e5e7eb;
-    font-weight: 500;
+    font-weight: 700;
 }
 
