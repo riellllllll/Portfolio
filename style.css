@@ -513,7 +513,7 @@ body {
 #about-skills {
     display: flex;
     flex-direction: row;
-    gap: 200px;
+    gap: 100px;
     align-items: flex-start;
     justify-content: center;
     margin: 0 auto;
@@ -525,13 +525,13 @@ body {
 /* About column */
 .about-container {
     flex: 1;
-    max-width: 900px;
+    max-width: 800px;
 }
 
 /* Skills column */
 .skills-container {
     flex: 1;
-    max-width: 500px;
+    max-width: 600px;
 }
 
 /* ========== SECTION HEADERS ========== */
