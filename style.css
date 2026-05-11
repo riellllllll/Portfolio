@@ -17,6 +17,7 @@
     --transition-medium: 0.3s ease;
     --nav-height: 80px;
     --max-width: 1280px;
+    --bg-card: #161616;
 }
 
 /* ========== Reset & Base ========== */
@@ -505,25 +506,36 @@ body {
     }
 }
 
-/* ========== ABOUT SECTION ========== */
-#about {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    min-height: 100vh;
-    padding: 120px 24px;
+/* ========== ABOUT & SKILLS SECTION ========== */
+#about-skills {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    gap: 80px;
+    align-items: flex-start;
     justify-content: center;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 120px 24px;
+    min-height: 100vh;
+    background-color: var(--bg-primary);  /* Use variable, not hardcoded */
 }
 
+/* About column */
 .about-container {
-    max-width: 800px;
-    width: 100%;
+    flex: 1;
+    max-width: 500px;
 }
 
-/* ========== SECTION HEADER ========== */
-.section-header {
-    margin-bottom: 48px;
+/* Skills column */
+.skills-container {
+    flex: 1;
+    max-width: 500px;
+}
+
+/* ========== SECTION HEADERS ========== */
+.section-header,
+.skill-header {
+    margin-bottom: 32px;
 }
 
 .section-tag {
@@ -532,18 +544,19 @@ body {
     background-color: rgba(185, 28, 28, 0.15);
     border: 1px solid rgba(185, 28, 28, 0.3);
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     color: #B91C1C;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
-.section-header h2 {
+.section-header h2,
+.skill-header h2 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 5rem;
-    color: #ffffff;
+    font-size: 4rem;
+    color: var(--text-primary);  /* Use variable */
     line-height: 1;
 }
 
@@ -551,128 +564,53 @@ body {
 .about-content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .about-text {
-    font-size: 1.25rem;
-    line-height: 1.7rem;
-    color: #e5e7eb;
-    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);  /* Use variable */
+    font-weight: 400;
 }
 
-#about-skills{
+/* ========== SKILLS GRID ========== */
+.skills-grid {
     display: flex;
-    flex-direction: row;
-    gap: 100px;
-    align-items: center;
-
+    flex-direction: column;
+    gap: 16px;
 }
 
-/* ========== SECTION SKILL HEADER ========== */
-
-.skill-header {
-    margin-bottom: 48px;
-}
-
-.section-tag {
-    display: inline-block;
-    padding: 6px 14px;
-    background-color: rgba(185, 28, 28, 0.15);
-    border: 1px solid rgba(185, 28, 28, 0.3);
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: #B91C1C;
-    margin-bottom: 16px;
-}
-
-.skill-header h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 5rem;
-    color: #ffffff;
-    line-height: 1;
-}
-
-
-/* Section background */
-.frontend-development{
-    background-color: #161616; 
-    border: 1px solid #2a2a2a;  
+/* Skill cards - use variables for theme switching */
+.frontend-development,
+.backend-development,
+.tools-workflow {
+    background-color: var(--bg-card, #161616);  /* Add new variable or use existing */
+    border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 30px;
-    margin:30px;
+    padding: 24px;
 }
 
-.frontend-development h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    color: #ffffff;
-    line-height: 1;
-    margin-bottom: 20px;
-    font-weight: 500;
-}
-
-.frontend-development li{
-    font-size: 1.20rem;
-    line-height: 1.7rem;
-    color: #e5e7eb;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.backend-development{
-    background-color: #161616; 
-    border: 1px solid #2a2a2a;  
-    border-radius: 8px;
-    padding: 30px;
-    margin:30px;
-}
-
-.backend-development h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    color: #ffffff;
-    line-height: 1;
-    margin-bottom: 20px;
-    font-weight: 500;
-}
-
-
-.backend-development li{
-    font-size: 1.25rem;
-    line-height: 1.7rem;
-    color: #e5e7eb;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.tools-workflow{
-    background-color: #161616; 
-    border: 1px solid #2a2a2a;  
-    border-radius: 8px;
-    padding: 30px;
-    margin:30px;
-}
-
+/* Light mode card background fallback */
+.frontend-development h2,
+.backend-development h2,
 .tools-workflow h2 {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    color: #ffffff;
+    font-size: 1.5rem;
+    color: var(--text-primary);  /* Use variable */
     line-height: 1;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-weight: 500;
 }
 
-
-.tools-workflow li{
-    font-size: 1.25rem;
-    line-height: 1.7rem;
-    color: #e5e7eb;
-    font-weight: 500;
-    margin-bottom: 10px;
+.frontend-development li,
+.backend-development li,
+.tools-workflow li {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);  /* Use variable */
+    font-weight: 400;
+    margin-bottom: 8px;
 }
 
 .frontend-development ul,
@@ -680,4 +618,31 @@ body {
 .tools-workflow ul {
     list-style-type: none;
     padding-left: 0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    #about-skills {
+        flex-direction: column;  /* Stack vertically on mobile */
+        gap: 60px;
+        align-items: center;
+        padding-top: 100px;
+    }
+    
+    .about-container,
+    .skills-container {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .section-header h2,
+    .skill-header h2 {
+        font-size: 3rem;
+    }
+    
+    .frontend-development,
+    .backend-development,
+    .tools-workflow {
+        padding: 20px;
+    }
 }

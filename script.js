@@ -103,6 +103,7 @@
             root.style.setProperty('--border', 'rgba(255, 255, 255, 0.1)');
             root.style.setProperty('--bg-toggle', 'rgba(255, 255, 255, 0.1)');
             root.style.setProperty('--bg-toggle-hover', 'rgba(255, 255, 255, 0.2)');
+            root.style.setProperty('--bg-card', '#161616');
         } else {
             root.style.setProperty('--bg-primary', '#f9fafb');
             root.style.setProperty('--bg-secondary', '#B91C1C');
@@ -113,6 +114,7 @@
             root.style.setProperty('--border', 'rgba(0, 0, 0, 0.1)');
             root.style.setProperty('--bg-toggle', 'rgba(0, 0, 0, 0.05)');
             root.style.setProperty('--bg-toggle-hover', 'rgba(0, 0, 0, 0.1)');
+            root.style.setProperty('--bg-card', '#f3f4f6');
         }
 
         // Update sun icon to moon and vice versa
