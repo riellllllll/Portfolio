@@ -568,6 +568,8 @@ body {
     align-items: center;
 }
 
+/* ========== SECTION SKILL HEADER ========== */
+
 .skill-header {
     margin-bottom: 48px;
 }
@@ -591,4 +593,26 @@ body {
     font-size: 5rem;
     color: #ffffff;
     line-height: 1;
+}
+
+.frontend-development{
+    border-
+}
+
+/* Section background */
+#skills {
+    background-color: #0a0a0a;  /* Keep your current black */
+}
+
+/* Skill category cards */
+.skill-category {
+    background-color: #141414;   /* Slightly lighter */
+    border: 1px solid #1f1f1f;    /* Subtle border */
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.skill-category:hover {
+    border-color: #B91C1C;        /* Red accent on hover */
+    background-color: #1a1a1a;
 }
