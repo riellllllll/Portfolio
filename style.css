@@ -564,8 +564,9 @@ body {
 #about-skills{
     display: flex;
     flex-direction: row;
-    gap: 40px;
+    gap: 100px;
     align-items: center;
+
 }
 
 /* ========== SECTION SKILL HEADER ========== */
@@ -595,24 +596,19 @@ body {
     line-height: 1;
 }
 
-.frontend-development{
-    border-
-}
 
 /* Section background */
-#skills {
-    background-color: #0a0a0a;  /* Keep your current black */
+.frontend-development {
+    background-color: #161616; 
+    border: 1px solid #2a2a2a;  
+
+
+    
 }
 
-/* Skill category cards */
-.skill-category {
-    background-color: #141414;   /* Slightly lighter */
-    border: 1px solid #1f1f1f;    /* Subtle border */
-    padding: 24px;
-    border-radius: 8px;
-}
-
-.skill-category:hover {
-    border-color: #B91C1C;        /* Red accent on hover */
-    background-color: #1a1a1a;
+.frontend-development ul,
+.backend-development ul,
+.tools-workflow ul {
+    list-style-type: none;
+    padding-left: 0;
 }
