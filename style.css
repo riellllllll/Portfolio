@@ -575,6 +575,10 @@ body {
     line-height: 1.7;
     color: var(--text-secondary);  /* Use variable */
     font-weight: 400;
+    background-color: var(--bg-card, #161616);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
 }
 
 /* ========== SKILLS GRID ========== */
