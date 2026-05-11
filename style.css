@@ -289,6 +289,9 @@ body {
 #hero .hero-content {
     flex: 1;
     max-width: 600px;
+     width: 100%;           
+    overflow-wrap: break-word;  
+    padding: 0 16px;  
 }
 
 /* "HI, I AM" - small white text */
@@ -486,7 +489,7 @@ body {
     }
     
     #hero h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
     
     #hero h2 {
@@ -498,7 +501,7 @@ body {
     }
     
     #hero img {
-        max-width: 300px;
+        max-width: 250px;
     }
     
     .scroll-indicator {
@@ -644,5 +647,50 @@ body {
     .backend-development,
     .tools-workflow {
         padding: 20px;
+    }
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+        padding-top: 100px;
+    }
+    
+    #hero h1 {
+        font-size: 4.5rem;
+    }
+    
+    #hero img {
+        max-width: 350px;
+    }
+
+      #hero h2 {
+        font-size: 2rem;
+    }
+
+    #about-skills {
+        flex-direction: column;
+        gap: 60px;
+        align-items: center;
+    }
+
+     .about-container,
+    .skills-container {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    #hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    #hero img {
+        max-width: 280px;
     }
 }
