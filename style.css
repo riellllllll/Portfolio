@@ -621,16 +621,22 @@ body {
 .learning-badge {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
+    gap: 12px;
+    padding: 14px 28px;      /* Increase from 10px 20px */
     background-color: rgba(185, 28, 28, 0.15);
     border: 1px solid rgba(185, 28, 28, 0.3);
     border-radius: 30px;
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 1.1rem;       /* Increase from 0.9rem */
+    font-weight: 600;        /* Bolder */
     color: #B91C1C;
     margin-top: 24px;
     width: fit-content;
+}
+
+.learning-badge i {
+    font-size: 1.3rem;       /* Larger icons */
+    margin: 0 4px;
+    vertical-align: middle;
 }
 
 .pulse-dot {
