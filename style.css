@@ -587,6 +587,123 @@ body {
     padding-left: 0;
 }
 
+.skill-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    vertical-align: middle;
+    color: #B91C1C;  /* Match your red theme */
+}
+
+/* For Devicon/Font Awesome */
+.skill-icon {
+    font-size: 1.5rem;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
+/* Colored icons override */
+.colored {
+    color: inherit;  /* Or keep their brand colors */
+}
+
+/* Dark mode - force white */
+.github-icon {
+    color: #ffffff !important;
+}
+
+/* Light mode - keep black */
+.light-mode .github-icon {
+    color: #000000 !important;
+}
+
+/* ========== LEARNING BADGE ========== */
+.learning-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: rgba(185, 28, 28, 0.15);
+    border: 1px solid rgba(185, 28, 28, 0.3);
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #B91C1C;
+    margin-top: 24px;
+    width: fit-content;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #B91C1C;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* ========== DOWNLOAD CV BUTTON ========== */
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 12px 28px;
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #B91C1C;
+    border-color: #B91C1C;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-download svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-download:hover svg {
+    transform: translateY(2px);
+}
+
+.learning-badge i {
+    font-size: 1rem;
+    margin: 0 2px;
+    vertical-align: middle;
+}
+
+.learning-items {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.devicon-github-original,
+.devicon-github-plain {
+    color: #ffffff !important;
+}
+
+/* Light mode - revert to black */
+.light-mode .devicon-github-original,
+.light-mode .devicon-github-plain {
+    color: #000000 !important;
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
     #about-skills {
