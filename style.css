@@ -657,13 +657,13 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
-    padding: 12px 28px;
+    margin-top: 24px;
+    padding: 14px 32px;
     background-color: transparent;
-    color: var(--text-primary);
-    border: 2px solid var(--border);
+    color: #ffffff;
+    border: 2px solid #B91C1C;    /* Red border instead of gray */
     font-family: 'Inter', sans-serif;
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -671,11 +671,11 @@ body {
     border-radius: 0;
     cursor: pointer;
     transition: all 0.3s ease;
+    width: auto;                   /* Not full-width */
 }
 
 .btn-download:hover {
     background-color: #B91C1C;
-    border-color: #B91C1C;
     color: #ffffff;
     transform: translateY(-2px);
 }
