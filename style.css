@@ -225,20 +225,7 @@ body {
     padding-left: 8px;
 }
 
-/* ========== Responsive ========== */
-@media (max-width: 768px) {
-    .nav-links-desktop {
-        display: none;
-    }
-    
-    .nav-mobile-controls {
-        display: flex;
-    }
-    
-    .mobile-menu.active {
-        display: flex;
-    }
-}
+
 
 /* ========== Demo Content ========== */
 .section {
@@ -480,34 +467,7 @@ body {
     50% { transform: translateY(8px); opacity: 1; }
 }
 
-/* ========== MOBILE ========== */
-@media (max-width: 768px) {
-    #hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 100px;
-    }
-    
-    #hero h1 {
-        font-size: 3rem;
-    }
-    
-    #hero h2 {
-        font-size: 1.8rem;
-    }
-    
-    #hero p {
-        justify-content: center;
-    }
-    
-    #hero img {
-        max-width: 250px;
-    }
-    
-    .scroll-indicator {
-        display: none;
-    }
-}
+
 
 /* ========== ABOUT & SKILLS SECTION ========== */
 #about-skills {
@@ -652,7 +612,47 @@ body {
     .tools-workflow {
         padding: 20px;
     }
+
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    #hero h1 {
+        font-size: 3rem;
+    }
+    
+    #hero h2 {
+        font-size: 1.8rem;
+    }
+    
+    #hero p {
+        justify-content: center;
+    }
+    
+    #hero img {
+        max-width: 250px;
+    }
+    
+    .scroll-indicator {
+        display: none;
+    }
+
+    .nav-links-desktop {
+        display: none;
+    }
+    
+    .nav-mobile-controls {
+        display: flex;
+    }
+    
+    .mobile-menu.active {
+        display: flex;
+    }
+
 }
+
 
 /* Tablet breakpoint */
 @media (max-width: 1024px) {
