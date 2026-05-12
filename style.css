@@ -225,8 +225,6 @@ body {
     padding-left: 8px;
 }
 
-
-
 /* ========== Demo Content ========== */
 .section {
     min-height: 100vh;
@@ -265,9 +263,9 @@ body {
     flex-direction: row;
     gap: 90px;
     background-color: #B91C1C;
+    overflow-x: hidden;
 }
 
-/* Override section alternating colors */
 #hero.section:nth-child(odd),
 #hero.section:nth-child(even) {
     background-color: #B91C1C;
@@ -276,12 +274,11 @@ body {
 #hero .hero-content {
     flex: 1;
     max-width: 600px;
-     width: 100%;           
-    overflow-wrap: break-word;  
-    padding: 0 16px;  
+    width: 100%;
+    overflow-wrap: break-word;
+    padding: 0 16px;
 }
 
-/* "HI, I AM" - small white text */
 #hero h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.5rem;
@@ -291,7 +288,6 @@ body {
     letter-spacing: 0.05em;
 }
 
-/* Big name - BLACK text */
 #hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 7rem;
@@ -301,7 +297,6 @@ body {
     letter-spacing: 0.02em;
 }
 
-/* Subtitle with divider line */
 #hero p {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
@@ -322,7 +317,6 @@ body {
     background-color: #000000;
 }
 
-/* Description paragraph */
 #hero .hero-subtitle {
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.9);
@@ -337,29 +331,29 @@ body {
     display: none;
 }
 
-/* ========== STATUS BADGE - CENTER BELOW BUTTONS ========== */
+/* ========== STATUS BADGE ========== */
 .status-badge {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 24px;      /* Bigger */
+    padding: 12px 24px;
     background-color: rgba(0, 0, 0, 0.25);
     border-radius: 30px;
-    font-size: 0.95rem;      /* Bigger text */
+    font-size: 0.95rem;
     font-weight: 500;
     color: #ffffff;
     margin-top: 20px;
-    align-self: center;      /* Center horizontally in flex container */
+    align-self: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .dot {
-    width: 10px;             /* Bigger dot */
+    width: 10px;
     height: 10px;
     background-color: #00ff88;
     border-radius: 50%;
     animation: pulse 2s infinite;
-    box-shadow: 0 0 8px #00ff88;  /* Glow effect */
+    box-shadow: 0 0 8px #00ff88;
 }
 
 @keyframes pulse {
@@ -450,7 +444,7 @@ body {
     display: flex;
     justify-content: center;
     padding-top: 8px;
-    animation: scrollBounce 2s infinite;  /* Move animation here */
+    animation: scrollBounce 2s infinite;
 }
 
 .wheel {
@@ -458,37 +452,32 @@ body {
     height: 8px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 2px;
-   
 }
-
 
 @keyframes scrollBounce {
     0%, 100% { transform: translateY(0); opacity: 1; }
     50% { transform: translateY(8px); opacity: 1; }
 }
 
-
-
 /* ========== ABOUT & SKILLS SECTION ========== */
 #about-skills {
     display: flex;
     flex-direction: row;
-    gap: 100px;
+    gap: 70px;
     align-items: flex-start;
     justify-content: center;
     margin: 0 auto;
     padding: 120px 24px;
     min-height: 100vh;
-    background-color: var(--bg-primary);  /* Use variable, not hardcoded */
+    background-color: var(--bg-primary);
+    overflow-x: hidden;
 }
 
-/* About column */
 .about-container {
     flex: 1;
-    max-width: 800px;
+    max-width: 600px;
 }
 
-/* Skills column */
 .skills-container {
     flex: 1;
     max-width: 600px;
@@ -518,7 +507,7 @@ body {
 .skill-header h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 4rem;
-    color: var(--text-primary);  /* Use variable */
+    color: var(--text-primary);
     line-height: 1;
 }
 
@@ -532,13 +521,13 @@ body {
 .about-text {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--text-secondary);  /* Use variable */
+    color: var(--text-secondary);
     font-weight: 400;
     background-color: var(--bg-card, #161616);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 24px;
-    
+    text-align: center;
 }
 
 /* ========== SKILLS GRID ========== */
@@ -548,23 +537,21 @@ body {
     gap: 16px;
 }
 
-/* Skill cards - use variables for theme switching */
 .frontend-development,
 .backend-development,
 .tools-workflow {
-    background-color: var(--bg-card, #161616);  /* Add new variable or use existing */
+    background-color: var(--bg-card, #161616);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 24px;
 }
 
-/* Light mode card background fallback */
 .frontend-development h2,
 .backend-development h2,
 .tools-workflow h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.5rem;
-    color: var(--text-primary);  /* Use variable */
+    color: var(--text-primary);
     line-height: 1;
     margin-bottom: 16px;
     font-weight: 500;
@@ -575,7 +562,7 @@ body {
 .tools-workflow li {
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--text-secondary);  /* Use variable */
+    color: var(--text-secondary);
     font-weight: 400;
     margin-bottom: 8px;
 }
@@ -592,50 +579,48 @@ body {
     height: 24px;
     margin-right: 12px;
     vertical-align: middle;
-    color: #B91C1C;  /* Match your red theme */
+    color: #B91C1C;
 }
 
-/* For Devicon/Font Awesome */
 .skill-icon {
     font-size: 1.5rem;
     margin-right: 12px;
     vertical-align: middle;
 }
 
-/* Colored icons override */
 .colored {
-    color: inherit;  /* Or keep their brand colors */
+    color: inherit;
 }
 
-/* Dark mode - force white */
 .github-icon {
     color: #ffffff !important;
 }
 
-/* Light mode - keep black */
 .light-mode .github-icon {
     color: #000000 !important;
 }
 
 /* ========== LEARNING BADGE ========== */
 .learning-badge {
-    display: inline-flex;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 12px;
-    padding: 14px 28px;      /* Increase from 10px 20px */
+    gap: 8px;
+    padding: 12px 20px;
     background-color: rgba(185, 28, 28, 0.15);
     border: 1px solid rgba(185, 28, 28, 0.3);
     border-radius: 30px;
-    font-size: 1.1rem;       /* Increase from 0.9rem */
-    font-weight: 600;        /* Bolder */
+    font-size: 1rem;
+    font-weight: 600;
     color: #B91C1C;
     margin-top: 24px;
-    width: fit-content;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .learning-badge i {
-    font-size: 1.3rem;       /* Larger icons */
-    margin: 0 4px;
+    font-size: 1rem;
+    margin: 0 2px;
     vertical-align: middle;
 }
 
@@ -647,21 +632,24 @@ body {
     animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.2); }
+.learning-items {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
 }
 
 /* ========== DOWNLOAD CV BUTTON ========== */
 .btn-download {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     margin-top: 24px;
     padding: 14px 32px;
     background-color: transparent;
-    color: #ffffff;
-    border: 2px solid #B91C1C;    /* Red border instead of gray */
+    color: var(--text-primary);
+    border: 2px solid #B91C1C;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
@@ -671,7 +659,8 @@ body {
     border-radius: 0;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: auto;                   /* Not full-width */
+    width: auto;
+    box-sizing: border-box;
 }
 
 .btn-download:hover {
@@ -688,96 +677,17 @@ body {
     transform: translateY(2px);
 }
 
-.learning-badge i {
-    font-size: 1rem;
-    margin: 0 2px;
-    vertical-align: middle;
-}
-
-.learning-items {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-}
 .devicon-github-original,
 .devicon-github-plain {
     color: #ffffff !important;
 }
 
-/* Light mode - revert to black */
 .light-mode .devicon-github-original,
 .light-mode .devicon-github-plain {
     color: #000000 !important;
 }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-    #about-skills {
-        flex-direction: column;  /* Stack vertically on mobile */
-        gap: 60px;
-        align-items: center;
-        padding-top: 100px;
-    }
-    
-    .about-container,
-    .skills-container {
-        max-width: 100%;
-        width: 100%;
-    }
-    
-    .section-header h2,
-    .skill-header h2 {
-        font-size: 3rem;
-    }
-    
-    .frontend-development,
-    .backend-development,
-    .tools-workflow {
-        padding: 20px;
-    }
-
-    #hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 100px;
-    }
-    
-    #hero h1 {
-        font-size: 3rem;
-    }
-    
-    #hero h2 {
-        font-size: 1.8rem;
-    }
-    
-    #hero p {
-        justify-content: center;
-    }
-    
-    #hero img {
-        max-width: 250px;
-    }
-    
-    .scroll-indicator {
-        display: none;
-    }
-
-    .nav-links-desktop {
-        display: none;
-    }
-    
-    .nav-mobile-controls {
-        display: flex;
-    }
-    
-    .mobile-menu.active {
-        display: flex;
-    }
-
-}
-
-
-/* Tablet breakpoint */
 @media (max-width: 1024px) {
     #hero {
         flex-direction: column-reverse;
@@ -785,33 +695,28 @@ body {
         gap: 40px;
         padding-top: 100px;
     }
-    
-     #hero .hero-content {
-        display: flex;           
-        flex-direction: column;   
-        align-items: center;      
+
+    #hero .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
     }
-    
+
     .status-badge {
-        align-self: center;    
+        align-self: center;
         margin-top: 20px;
     }
-    
+
     .hero-buttons {
-        justify-content: center;  
+        justify-content: center;
     }
 
-    #hero h1 {
-        font-size: 4.5rem;
-    }
-    
+    #hero h1 { font-size: 4.5rem; }
+    #hero h2 { font-size: 2rem; }
+
     #hero img {
         max-width: 350px;
-    }
-
-      #hero h2 {
-        font-size: 2rem;
     }
 
     #about-skills {
@@ -820,20 +725,64 @@ body {
         align-items: center;
     }
 
-     .about-container,
+    .about-container,
     .skills-container {
         max-width: 100%;
         width: 100%;
     }
 }
 
-/* Mobile */
-@media (max-width: 767px) {
-    #hero h1 {
-        font-size: 3.5rem;
+@media (max-width: 768px) {
+    .nav-links-desktop { display: none; }
+    .nav-mobile-controls { display: flex; }
+    .mobile-menu.active { display: flex; }
+
+    #hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 100px;
     }
-    
-    #hero img {
-        max-width: 280px;
+
+    #hero h1 { font-size: 3rem; }
+    #hero h2 { font-size: 1.8rem; }
+
+    #hero p { justify-content: center; }
+
+    #hero img { max-width: 250px; }
+
+    .scroll-indicator { display: none; }
+
+    #about-skills {
+        flex-direction: column;
+        gap: 60px;
+        align-items: center;
+        padding-top: 100px;
+    }
+
+    .about-container,
+    .skills-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .section-header h2,
+    .skill-header h2 {
+        font-size: 3rem;
+    }
+
+    .frontend-development,
+    .backend-development,
+    .tools-workflow {
+        padding: 20px;
+    }
+
+    .learning-badge {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+    }
+
+    .btn-download {
+        width: 100%;
+        justify-content: center;
     }
 }
