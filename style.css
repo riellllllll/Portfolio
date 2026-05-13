@@ -689,7 +689,7 @@ body {
 
 /* ========== PROJECTS SECTION ========== */
 #projects {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary, #B91C1C);
     color: var(--text-primary);
     min-height: 100vh;
     padding: 120px 24px;
@@ -756,6 +756,7 @@ body {
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
 }
 
 .project-card:hover {
@@ -763,28 +764,35 @@ body {
     border-color: #B91C1C;
 }
 
-/* ========== PROJECT IMAGE ========== */
+/* ========== PROJECT IMAGE / PLACEHOLDER ========== */
 .project-image {
     position: relative;
-    height: 200px;
+    height: 280px;
     overflow: hidden;
 }
 
-.project-image img {
+.project-image img,
+.image-placeholder {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-.project-card:hover .project-image img {
+.project-card:hover .project-image img,
+.project-card:hover .image-placeholder {
     transform: scale(1.05);
 }
 
+
+
+
+/* ========== PROJECT OVERLAY (BADGE) ========== */
 .project-overlay {
     position: absolute;
     top: 16px;
     left: 16px;
+    z-index: 2;
 }
 
 .project-type {
@@ -809,32 +817,50 @@ body {
     color: #ffffff;
 }
 
-/* ========== PROJECT INFO ========== */
-.project-info {
+
+
+/* ========== HOVER OVERLAY CONTENT (THE FIX) ========== */
+.project-card .project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 24px;
+    background: rgba(22, 22, 22, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 3;
+    border-top: 1px solid rgba(185, 28, 28, 0.2);
 }
 
+.project-card:hover .project-info {
+    transform: translateY(0);
+}
+
+/* ========== PROJECT INFO TEXT ========== */
 .project-category {
     display: block;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #B91C1C;
+    color: #dc2626;
     margin-bottom: 8px;
 }
 
 .project-info h3 {
     font-family: 'Inter', sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #ffffff;
     margin-bottom: 12px;
 }
 
 .project-info p {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: #d1d5db;
     line-height: 1.6;
     margin-bottom: 16px;
 }
@@ -849,11 +875,12 @@ body {
 
 .tech-tag {
     padding: 4px 12px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 4px;
     font-size: 0.75rem;
-    color: var(--text-secondary);
+    color: #d1d5db;
+    font-weight: 500;
 }
 
 /* ========== PROJECT LINKS ========== */
@@ -862,7 +889,7 @@ body {
     gap: 12px;
 }
 
-.btn {
+.project-links .btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -874,75 +901,43 @@ body {
     border-radius: 6px;
     transition: all 0.3s ease;
     cursor: pointer;
-}
-
-.btn-live {
-    background-color: #B91C1C;
-    color: #ffffff;
     border: none;
 }
 
+.btn-live {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
 .btn-live:hover {
-    background-color: #991b1b;
+    background-color: #b91c1c;
     transform: translateY(-2px);
 }
 
 .btn-github {
     background-color: transparent;
-    color: var(--text-primary);
-    border: 1px solid var(--border);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 .btn-github:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: #B91C1C;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #dc2626 !important;
 }
 
 .btn-drive {
-    background-color: rgba(66, 133, 244, 0.15);
-    color: #4285f4;
-    border: 1px solid rgba(66, 133, 244, 0.3);
+    background-color: rgba(66, 133, 244, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(66, 133, 244, 0.3) !important;
 }
 
 .btn-drive:hover {
-    background-color: rgba(66, 133, 244, 0.25);
+    background-color: rgba(66, 133, 244, 0.3);
     transform: translateY(-2px);
 }
 
-.btn svg {
+.project-links .btn svg {
     flex-shrink: 0;
-}
-
-/* ========== RESPONSIVE ========== */
-@media (max-width: 1024px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .projects-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
-    
-    .projects-header h2 {
-        font-size: 2.5rem;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-links {
-        flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
-        justify-content: center;
-    }
 }
 
 /* ========== RESPONSIVE ========== */
@@ -987,6 +982,10 @@ body {
     .skills-container {
         max-width: 100%;
         width: 100%;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1040,6 +1039,29 @@ body {
     }
 
     .btn-download {
+        width: 100%;
+        justify-content: center;
+    }
+
+     .projects-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .projects-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .btn {
         width: 100%;
         justify-content: center;
     }
