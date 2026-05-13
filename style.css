@@ -798,7 +798,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 32px;
+    padding: 28px;
     background: rgba(22, 22, 22, 0.92);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -810,6 +810,7 @@ body {
     flex-direction: column;
     justify-content: center;
     border-radius: 12px;
+    overflow-y: auto;  /* scroll if content overflows */
 }
 
 .project-card:hover .project-info {
@@ -1028,27 +1029,41 @@ body {
         justify-content: center;
     }
 
-    .projects-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
-    
-    .projects-header h2 {
-        font-size: 2.5rem;
-    }
-    
-    .project-card {
+   .project-card {
         flex: 0 0 100%;
         max-width: 100%;
+        min-width: unset;
+    }
+    
+    .project-image {
+        height: 240px;
+    }
+    
+    .project-card .project-info {
+        padding: 20px;
+        overflow-y: auto;
+    }
+    
+    .project-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .project-info p {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .tech-tags {
+        margin-bottom: 12px;
     }
     
     .project-links {
-        flex-direction: column;
+        gap: 8px;
     }
     
     .project-links .btn {
-        width: 100%;
-        justify-content: center;
+        padding: 8px 14px;
+        font-size: 0.75rem;
+        flex: 1;
     }
 }
