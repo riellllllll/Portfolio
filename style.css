@@ -865,6 +865,7 @@ body {
 .project-links {
     display: flex;
     gap: 12px;
+    margin-top: auto;  /* pushes buttons to bottom */
 }
 
 .project-links .btn {
