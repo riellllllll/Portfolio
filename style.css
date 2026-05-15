@@ -203,6 +203,16 @@ body {
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+.scroll-animate-item.animate {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.scroll-animate-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .scroll-animate.animate .scroll-animate-item,
 .scroll-animate-left.animate .scroll-animate-item,
 .scroll-animate-right.animate .scroll-animate-item,
