@@ -86,6 +86,44 @@
 
     window.addEventListener('scroll', updateActiveLink, { passive: true });
 
+    // ========== Scroll Animation Observer ==========
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+    };
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Initialize scroll animations
+    function initScrollAnimations() {
+        const animElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale');
+        
+        animElements.forEach((el, index) => {
+            // Add animate class to set initial hidden state
+            el.classList.add('animate');
+            
+            // Force browser reflow so it registers the initial state
+            void el.offsetHeight;
+            
+            // Observe for intersection
+            scrollObserver.observe(el);
+        });
+    }
+
+    // Run after a small delay to ensure DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollAnimations);
+    } else {
+        initScrollAnimations();
+    }
+
     // ========== Theme Toggle ==========
     let isDark = true;
 
