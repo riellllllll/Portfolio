@@ -844,7 +844,6 @@ body {
     color: #000000 !important;
 }
 
-
 /* ========== PROJECTS SECTION ========== */
 #projects {
     background-color: var(--bg-secondary, #B91C1C);
@@ -1253,7 +1252,7 @@ body {
 
 .site-footer p {
     font-size: 0.9rem;
-    color: var(--text-primary); /* Changed from text-muted to text-primary for better contrast */
+    color: #ffffff;
 }
 
 .footer-links {
@@ -1265,32 +1264,31 @@ body {
 
 .footer-link {
     font-size: 0.9rem;
-    color: var(--text-secondary); /* Changed from text-muted */
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: 500;
 }
 
 .footer-link:hover {
-    color: var(--text-primary);
-}
-
-/* Light mode footer fix */
-.light-mode .site-footer p,
-.light-mode .footer-link {
-    color: #ffffff; /* Force white on red background in light mode */
-}
-
-.light-mode .footer-link:hover {
-    color: #f3f4f6;
+    color: #ffffff;
 }
 
 /* Year span */
 #currentYear {
     font-weight: 600;
-    color: var(--text-primary);
+    color: #ffffff;
 }
 
+/* Light mode footer fix */
+.light-mode .site-footer p,
+.light-mode .footer-link {
+    color: #ffffff;
+}
+
+.light-mode .footer-link:hover {
+    color: #f3f4f6;
+}
 .projects-container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -1335,9 +1333,10 @@ body {
     transition: transform 0.3s ease, border-color 0.3s ease;
     position: relative;
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
     flex: 0 0 calc(33.333% - 16px);
     min-width: 300px;
+    box-sizing: border-box;
 }
 
 .project-card:hover {
@@ -1348,7 +1347,7 @@ body {
 /* Project Image */
 .project-image {
     position: relative;
-    height: 320px;
+    height: 380px;
     overflow: hidden;
 }
 
@@ -1405,7 +1404,7 @@ body {
     flex-direction: column;
     justify-content: center;
     border-radius: 12px;
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .project-card:hover .project-info {
@@ -1650,7 +1649,7 @@ body {
     }
     
     .project-image {
-        height: 240px;
+        height: 300px;
     }
     
     .project-card .project-info {
