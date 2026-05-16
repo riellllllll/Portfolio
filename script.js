@@ -123,7 +123,7 @@
     function toggleTheme() {
         isDark = !isDark;
         const root = document.documentElement;
-        
+
         if (isDark) {
             root.style.setProperty('--bg-primary', '#0a0a0a');
             root.style.setProperty('--bg-secondary', '#B91C1C');
@@ -160,18 +160,30 @@
             <path d="m6.34 17.66-1.41 1.41"></path>
             <path d="m19.07 4.93-1.41 1.41"></path>
         `;
-        
+
         const moonIcon = `
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
         `;
 
         const icon = isDark ? sunIcon : moonIcon;
-        
+
         [themeToggle, themeToggleMobile].forEach(btn => {
             if (btn) btn.querySelector('svg').innerHTML = icon;
         });
+
+        // Fix contact section text color in light mode
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            if (isDark) {
+                contactSection.style.color = '';
+            } else {
+                contactSection.style.color = '#ffffff';
+            }
+        }
     }
 
+
+    
     themeToggle.addEventListener('click', toggleTheme);
     themeToggleMobile.addEventListener('click', toggleTheme);
 
@@ -181,6 +193,85 @@
             toggleMenu();
         }
     });
+
+// ========== Radar Sweep Detection ==========
+(function initRadarDetection() {
+    const sweep = document.querySelector('.radar-sweep');
+    const nodes = document.querySelectorAll('.radar-node');
+    if (!sweep || nodes.length === 0) return;
+
+
+document.addEventListener('click', () => {
+    const anim = sweep.getAnimations()[0];
+    if (anim) {
+        const elapsed = anim.currentTime % 4000;
+        const angle = (elapsed / 4000) * 360;
+        console.log('Current sweep angle:', Math.round(angle));
+    }
+});
+
+
+    const SWEEP_DURATION = 4000;
+    const DETECT_WINDOW = 30;
+
+    // CALIBRATION: Measure the actual offset between CSS and JS time
+    // We wait 500ms for animation to definitely be running, then sync
+    let startTime = null;
+    let isCalibrated = false;
+
+    function calibrate() {
+        const anim = sweep.getAnimations()[0];
+        if (anim && anim.currentTime > 0) {
+            // Animation is running. currentTime = how long it's been running
+            // So startTime = now - currentTime
+            startTime = performance.now() - anim.currentTime;
+            isCalibrated = true;
+            console.log('Calibrated! Offset:', anim.currentTime, 'ms');
+        } else {
+            // Retry until animation starts
+            setTimeout(calibrate, 100);
+        }
+    }
+
+    // Start calibration
+    setTimeout(calibrate, 500);
+
+    function getSweepAngle() {
+        if (!isCalibrated) return -1; // Don't detect until calibrated
+        const elapsed = (performance.now() - startTime) % SWEEP_DURATION;
+        return (elapsed / SWEEP_DURATION) * 360;
+    }
+
+    function checkDetections() {
+        const sweepAngle = getSweepAngle();
+        
+        // Skip if not calibrated yet
+        if (sweepAngle < 0) {
+            requestAnimationFrame(checkDetections);
+            return;
+        }
+
+        // DEBUG: Log angle to verify
+        // console.log('Angle:', Math.round(sweepAngle));
+
+        nodes.forEach(node => {
+            const targetAngle = parseFloat(node.dataset.angle) || 0;
+            let diff = Math.abs(sweepAngle - targetAngle);
+            if (diff > 180) diff = 360 - diff;
+
+            if (diff <= DETECT_WINDOW) {
+                node.classList.add('active');
+            } else {
+                node.classList.remove('active');
+            }
+        });
+
+        requestAnimationFrame(checkDetections);
+    }
+
+    // Start detection loop
+    requestAnimationFrame(checkDetections);
+})();
 
     // ========== Initialize ==========
     handleScroll();
