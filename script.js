@@ -86,20 +86,24 @@
 
     window.addEventListener('scroll', updateActiveLink, { passive: true });
 
-    // ========== Scroll Animation Observer ==========
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -50px 0px',
-        threshold: 0.1
-    };
+// ========== Scroll Animation Observer ==========
+const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -50px 0px',
+    threshold: 0.1
+};
 
-    const scrollObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            entry.target.classList.remove('animate'); // Remove animate so it can be re-added
+        } else {
+            entry.target.classList.remove('visible');
+            entry.target.classList.add('animate'); // Reset for re-animation
+        }
+    });
+}, observerOptions);
 
     // Initialize scroll animations
     function initScrollAnimations() {

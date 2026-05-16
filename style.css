@@ -134,9 +134,12 @@ body {
 }
 
 /* Scroll-triggered animations - content is visible by default, animates when scrolled */
-.scroll-animate {
+.scroll-animate,
+.scroll-animate-left,
+.scroll-animate-right,
+.scroll-animate-scale {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateX(0) scale(1);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -145,31 +148,9 @@ body {
     transform: translateY(60px);
 }
 
-.scroll-animate.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.scroll-animate-left {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
 .scroll-animate-left.animate {
     opacity: 0;
     transform: translateX(-60px);
-}
-
-.scroll-animate-left.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.scroll-animate-right {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .scroll-animate-right.animate {
@@ -177,27 +158,18 @@ body {
     transform: translateX(60px);
 }
 
-.scroll-animate-right.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.scroll-animate-scale {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
 .scroll-animate-scale.animate {
     opacity: 0;
     transform: scale(0.9);
 }
 
+.scroll-animate.visible,
+.scroll-animate-left.visible,
+.scroll-animate-right.visible,
 .scroll-animate-scale.visible {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) translateX(0) scale(1);
 }
-
 /* Stagger children */
 .scroll-animate-item {
     opacity: 1;
@@ -237,7 +209,6 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
-
 
 /* ========== NAVBAR ========== */
 .navbar {
@@ -923,10 +894,20 @@ body {
     height: 300px;
     margin: 0 auto 40px;
     border-radius: 50%;
-    background: rgba(13, 13, 13, 0.3);
+    background: rgba(220, 38, 38, 0.05); /* Changed from rgba(13,13,13,0.3) */
     border: 1px solid var(--border);
     overflow: hidden;
     box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+}
+
+/* Light mode radar fix */
+.light-mode .radar-container {
+    background: rgba(220, 38, 38, 0.08);
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.15);
+}
+
+.light-mode .radar-grid {
+    opacity: 0.3; /* Reduce grid intensity in light mode */
 }
 
 .radar-sweep {
@@ -1141,15 +1122,16 @@ body {
     z-index: -1;
 }
 
-/* Contact Info */
-
-/* Contact Info */
 .contact-info {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 24px; /* Reduced from 30px */
     flex-wrap: wrap;
     margin-bottom: 40px;
+    width: 100%;
+    max-width: 1000px; /* Constrain total width */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-info .info-card {
@@ -1194,7 +1176,10 @@ body {
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
-    width: 280px;
+    width: 100%; /* Changed from 280px */
+    max-width: 320px; /* Added max-width */
+    min-width: 260px; /* Added min-width */
+    flex: 1; /* Allow flex grow */
     text-align: left;
     transition: all 0.3s ease;
     backdrop-filter: blur(5px);
@@ -1268,7 +1253,7 @@ body {
 
 .site-footer p {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--text-primary); /* Changed from text-muted to text-primary for better contrast */
 }
 
 .footer-links {
@@ -1280,7 +1265,7 @@ body {
 
 .footer-link {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: var(--text-secondary); /* Changed from text-muted */
     text-decoration: none;
     transition: color 0.3s ease;
     font-weight: 500;
@@ -1288,6 +1273,16 @@ body {
 
 .footer-link:hover {
     color: var(--text-primary);
+}
+
+/* Light mode footer fix */
+.light-mode .site-footer p,
+.light-mode .footer-link {
+    color: #ffffff; /* Force white on red background in light mode */
+}
+
+.light-mode .footer-link:hover {
+    color: #f3f4f6;
 }
 
 /* Year span */
