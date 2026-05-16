@@ -593,7 +593,12 @@ body {
     height: auto;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: 
+        20px 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(0, 0, 0, 0.3),
+        0 0 40px rgba(0, 0, 0, 0.4),
+        0 0 80px rgba(0, 0, 0, 0.2);
+    filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
 }
 
 /* Scroll Indicator */
@@ -1550,8 +1555,14 @@ body {
     #hero h1 { font-size: 4.5rem; }
     #hero h2 { font-size: 2rem; }
 
-    #hero img {
+     #hero img {
         max-width: 350px;
+        box-shadow: 
+            15px 15px 40px rgba(0, 0, 0, 0.5),
+            0 0 0 1px rgba(0, 0, 0, 0.3),
+            0 0 30px rgba(0, 0, 0, 0.4),
+            0 0 60px rgba(0, 0, 0, 0.2);
+        filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
     }
 
     /* About & Skills */
@@ -1592,7 +1603,15 @@ body {
 
     #hero p { justify-content: center; }
 
-    #hero img { max-width: 250px; }
+     #hero img { 
+        max-width: 250px;
+        box-shadow: 
+            10px 10px 30px rgba(0, 0, 0, 0.5),
+            0 0 0 1px rgba(0, 0, 0, 0.3),
+            0 0 20px rgba(0, 0, 0, 0.4),
+            0 0 40px rgba(0, 0, 0, 0.2);
+        filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    }
 
     .scroll-indicator { display: none; }
 
