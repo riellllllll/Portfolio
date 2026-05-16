@@ -200,17 +200,6 @@
     const nodes = document.querySelectorAll('.radar-node');
     if (!sweep || nodes.length === 0) return;
 
-
-document.addEventListener('click', () => {
-    const anim = sweep.getAnimations()[0];
-    if (anim) {
-        const elapsed = anim.currentTime % 4000;
-        const angle = (elapsed / 4000) * 360;
-        console.log('Current sweep angle:', Math.round(angle));
-    }
-});
-
-
     const SWEEP_DURATION = 4000;
     const DETECT_WINDOW = 30;
 
